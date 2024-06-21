@@ -1,40 +1,107 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+    <title>reveal.js</title>
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/black.css">
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
-		</div>
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css">
+    <style>
+        .reveal .slides {
+            width: 100% !important;
+        }
+        .reveal .slide {
+            padding: 0 !important;
+        }
+        pre code {
+            font-size: 0.6em; /* Уменьшение размера шрифта для кода */
+            padding-left: 10px; /* Добавляем отступ слева */
+        }
+    </style>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section>Slide 1</section>
+        <section>Slide 2</section>
+        <section>Slide 3</section>
+        <section>Slide 4</section>
+        <section>Slide 5</section>
+        <section>Slide 6</section>
+        <section>Slide 7</section>
+        <section>Slide 8</section>
+        <section>Slide 9</section>
+        <section>
+            <h2 style="font-size: 0.8em;">Сложности работы с серверной документацией</h2>
+            <div style="display: flex; justify-content: center; width: 90%; margin: 0 auto; height: 80vh;">
+                <div style="width: 50%; padding-left: 30px; margin-right: 0;">
+					<pre><code>
+private static baseUrl = `${clientCredentials.authUrl}/oauth/ecommerce2024/customers`;
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
+public static async login(username: string, password: string): Promise<LoginResponse> {
+    const url = `${this.baseUrl}/token`;
+    const anonymousToken = LocalStorageService.getAnonymousAuthorisedToken();
+    if (anonymousToken) {
+        return AuthService.anonymousLogin(username, password);
+    }
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-	</body>
+    const body = new URLSearchParams({
+        grant_type: 'password',
+        username,
+        password,
+    }).toString();
+
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: getFormHeaders(),
+        body,
+    });
+
+    if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`Failed to authenticate customer: ${errorText}`);
+    }
+
+    const data = await handleResponse(response);
+
+    if (data.access_token) {
+        LocalStorageService.setAuthorisedToken(data.access_token);
+    }
+
+    await AuthService.authenticateCustomer(username, password);
+
+    return data;
+}
+					</code></pre>
+                </div>
+                <div style="width: 50%; margin-left: 0;">
+                    <img src="assets/eCommerce-documentation.png" alt="Документация" style="width: 110%; height: 90%;">
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<script src="dist/reveal.js"></script>
+<script src="plugin/notes/notes.js"></script>
+<script src="plugin/markdown/markdown.js"></script>
+<script src="plugin/highlight/highlight.js"></script>
+<script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+    });
+</script>
+</body>
 </html>

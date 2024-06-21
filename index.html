@@ -23,20 +23,37 @@
             font-size: 0.6em;
             padding-left: 10px;
         }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            width: 90%;
+            margin: 0 auto;
+            height: 80vh;
+        }
+        .left-column, .right-column {
+            width: 48%;
+        }
+        .left-column {
+            display: flex;
+            flex-direction: column;
+            justify-content: stretch;
+        }
+        .left-column pre {
+            flex-grow: 1;
+        }
     </style>
 </head>
 <body>
 <div class="reveal">
     <div class="slides">
-        <div class="reveal">
-            <div class="slides">
-                <section style="background-color: gold">
-                    <h2 style="text-align: center; color: red">Final Task Team</h2>
-                    <div style="text-align: center;">
-                        <img src="assets/team.jpg" alt="Team Photo" style="max-width: 40%; height: auto;">
-                        <p style="color:darkblue">Арина работала за двоих</p>
-                    </div>
-                </section>
+        <section style="background-color: gold">
+            <h2 style="text-align: center; color: red">Final Task Team</h2>
+            <div style="text-align: center;">
+                <img src="assets/team.jpg" alt="Team Photo" style="max-width: 40%; height: auto;">
+                <p style="color:darkblue">Арина работала за двоих</p>
+            </div>
+        </section>
         <section>Slide 2</section>
         <section>Slide 3</section>
         <section>Slide 4</section>
@@ -47,12 +64,20 @@
         <section>Slide 9</section>
         <section>
             <h2 style="font-size: 0.8em;">Сложности работы с серверной документацией</h2>
-            <div style="display: flex; justify-content: center; width: 90%; margin: 0 auto; height: 80vh;">
-                <div style="width: 50%; padding-left: 30px; margin-right: 0;">
-					<pre><code>
+            <div class="container">
+                <div class="left-column">
+                    <pre><code>
+// .env файл
+CLIENT_ID=uubLFgY2h2bx46pL9eC7WiRq
+CLIENT_SECRET=rwseow5pRNilCJFePBH3JK2rnfR3lhUY
+SCOPE=manage_products:ecommerce2024 manage_extensions:ecommerce2024 manage_my_shopping_lists:ecommerce2024 manage_order_edits:ecommerce2024 manage_shipping_methods:ecommerce2024 manage_payments:ecommerce2024 manage_my_profile:ecommerce2024 manage_tax_categories:ecommerce2024 manage_project_settings:ecommerce2024 manage_categories:ecommerce2024 manage_types:ecommerce2024 manage_my_payments:ecommerce2024 manage_customers:ecommerce2024 manage_orders:ecommerce2024 manage_customer_groups:ecommerce2024 manage_discount_codes:ecommerce2024 manage_shopping_lists:ecommerce2024 manage_my_orders:ecommerce2024 create_anonymous_token:ecommerce2024 manage_cart_discounts:ecommerce2024
+API_URL=https://api.us-central1.gcp.commercetools.com
+AUTH_URL=https://auth.us-central1.gcp.commercetools.com
+PROJECT_KEY=ecommerce2024
+
 private static baseUrl = `${clientCredentials.authUrl}/oauth/ecommerce2024/customers`;
 
-public static async login(username: string, password: string): Promise<LoginResponse> {
+public static async login(username: string, password: string) {
     const url = `${this.baseUrl}/token`;
     const anonymousToken = LocalStorageService.getAnonymousAuthorisedToken();
     if (anonymousToken) {
@@ -86,16 +111,16 @@ public static async login(username: string, password: string): Promise<LoginResp
 
     return data;
 }
-					</code></pre>
+                    </code></pre>
                 </div>
-                <div style="width: 50%; margin-left: 0;">
-                    <img src="assets/eCommerce-documentation.png" alt="Документация" style="width: 110%; height: 90%;">
+                <div class="right-column">
+                    <img src="assets/eCommerce-documentation.png" alt="Документация" style="width: 100%; height: 100%;">
                 </div>
             </div>
         </section>
-                <section style="background-color: gold;">
-                    <h2 style="text-align: center; color: darkblue;">Спасибо за внимание!!!</h2>
-                </section>
+        <section style="background-color: gold;">
+            <h2 style="text-align: center; color: darkblue;">Спасибо за внимание!!!</h2>
+        </section>
     </div>
 </div>
 

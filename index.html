@@ -18,6 +18,10 @@
         }
         .reveal .slide {
             padding: 0 !important;
+            margin: 0;
+        }
+        body {
+            margin: 0;
         }
         pre code {
             font-size: 0.6em;
@@ -42,16 +46,28 @@
         .left-column pre {
             flex-grow: 1;
         }
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+        .blinking {
+            animation: blink 1s steps(5, start) infinite;
+        }
     </style>
 </head>
 <body>
 <div class="reveal">
     <div class="slides">
-        <section style="background-color: gold">
-            <h2 style="text-align: center; color: red">Final Task Team</h2>
-            <div style="text-align: center;">
-                <img src="assets/team.jpg" alt="Team Photo" style="max-width: 40%; height: auto;">
-                <p style="color:darkblue">Арина работала за двоих</p>
+        <section style="background-color: gold; margin: 0; padding: 0;">
+            <h2 style="text-align: center; color: red; margin: 0">Final Task Team</h2>
+            <div style="text-align: center; padding: 1em;">
+                <img src="assets/team.jpg" alt="Team Photo" style="max-width: 30%; height: 8.5em; margin: 0;">
+                <p class="blinking" style="color: red; font-size: 1em;">Дисклеймер:</p>
+                <p style="color: navy; font-size: 0.6em; margin: 0 auto; width: 80%;">
+                    Во избежание дисквалификации сообщаем, что в проекте принимало участие 3 человека, в папку assests было загружено изображение с 3 участниками,
+                    но в браузере получили 4 участника, при этом в консоли была выведена ОШИБКА: «Арина работала за двоих».
+                </p>
             </div>
         </section>
         <section>Slide 2</section>

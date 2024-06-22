@@ -54,6 +54,52 @@
         .blinking {
             animation: blink 1s steps(5, start) infinite;
         }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            text-align: center;
+            font-weight: bold;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .clickable-area {
+            position: absolute;
+            top: 40%;
+            left: 0;
+            width: 100%;
+            height: 10%;
+            cursor: pointer;
+        }
+        .modal-text {
+            color: red;
+            font-size: 2em;
+        }
     </style>
 </head>
 <body>
@@ -130,13 +176,22 @@ public static async login(username: string, password: string) {
                     </code></pre>
                 </div>
                 <div class="right-column">
-                    <img src="assets/eCommerce-documentation.png" alt="Документация" style="width: 100%; height: 100%;">
+                    <img id="clickable-image" src="assets/eCommerce-documentation.png" alt="Документация" style="width: 100%; height: 100%;">
+                    <div class="clickable-area" onclick="showModal()"></div>
                 </div>
             </div>
         </section>
         <section style="background-color: gold;">
             <h2 style="text-align: center; color: darkblue;">Спасибо за внимание!!!</h2>
         </section>
+    </div>
+</div>
+
+<!-- Модальное окно -->
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <p class="modal-text">Aladdin:open sesame</p>
     </div>
 </div>
 
@@ -154,6 +209,14 @@ public static async login(username: string, password: string) {
         // Learn about plugins: https://revealjs.com/plugins/
         plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
     });
+
+    function showModal() {
+        document.getElementById("myModal").style.display = "block";
+    }
+
+    function closeModal() {
+        document.getElementById("myModal").style.display = "none";
+    }
 </script>
 </body>
 </html>

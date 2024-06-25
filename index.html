@@ -34,12 +34,15 @@
             color: red !important;
             margin-top: 0.5em !important;
         }
+
         section h2 {
             color: darkblue !important;
         }
-        section h3{
+
+        section h3 {
             color: darkblue !important;
         }
+
         section li {
             color: darkblue !important;
         }
@@ -145,33 +148,15 @@
             .disclaimer-text {
                 width: 70% !important;
             }
+
             .container-max-width {
-                max-width: 60%; /* Ограничиваем максимальную ширину на больших экранах */
+                max-width: 60%;
             }
         }
 
         .small-font {
             font-size: 0.5em;
         }
-/*
-        .container-main {
-
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 80%;
-            height: 100vh;
-            margin: 0 auto;
-            text-align: center;
-            color: darkblue;
-        }*/
-
-        /*.container-main h1 {
-            font-size: 2.5em;
-            color: darkblue;
-            margin-bottom: 2em;
-        }*/
 
         .communication-img {
             display: flex;
@@ -205,34 +190,39 @@
         }
 
 
-        .participants-container{
+        .participants-container {
             display: flex;
             justify-content: center;
             align-items: start;
             font-size: 1.2em;
             gap: 3em;
         }
-        .slide-4{
+
+        .slide-4 {
             height: 100vh;
             display: flex;
             flex-direction: column;
             padding-left: 20em;
             padding-right: 20em;
         }
-        .slide-4-content{
+
+        .slide-4-content {
             display: flex;
             flex-direction: column;
             align-items: stretch;
             justify-content: center;
         }
-        .slide-4-content li{
+
+        .slide-4-content li {
             margin-bottom: 1em;
             font-size: 1.2em;
         }
-        .slide-4-content h3{
+
+        .slide-4-content h3 {
             margin-top: 0 !important;
         }
-        .slide-5{
+
+        .slide-5 {
             height: 100vh;
             display: flex;
             flex-direction: column;
@@ -240,7 +230,8 @@
             padding-left: 23em;
             padding-right: 23em;
         }
-        .slide-6{
+
+        .slide-6 {
             height: 100vh;
             display: flex;
             flex-direction: column;
@@ -248,10 +239,12 @@
             padding-left: 23em;
             padding-right: 23em;
         }
-        .slide-6 li{
+
+        .slide-6 li {
             font-size: 1.5em;
             margin-bottom: 1em;
         }
+
         .stack-slide {
             display: flex;
             flex-direction: column;
@@ -260,14 +253,17 @@
             text-align: center;
             height: 100vh;
         }
+
         .stack-slide ul {
             list-style: none;
             padding: 0;
         }
+
         .stack-slide li {
             font-size: 1em;
             margin-bottom: 1em;
         }
+
         .countdown-container {
             display: flex;
             align-items: center;
@@ -294,21 +290,62 @@
             animation: explosion 1s forwards;
         }
 
+        .individual-statistics-container {
+            display: flex;
+            justify-content: center;
+            gap: 1em;
+            margin-top: 0;
+        }
+
+        .individual-stat {
+            max-width: 30%;
+            height: auto;
+        }
+        .code-review-slide {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .code-review-images-scroll {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: start;
+            overflow-y: auto;
+            height: 60vh;
+            width: 80%;
+        }
+
+        .code-review-image {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 1em;
+            display: block;
+        }
+
+
+
+
     </style>
 </head>
 <body>
 <div class="reveal">
     <div class="slides">
         <section style="background-color: lightyellow; margin: 0; padding: 0;">
-            <h2 style="text-align: center; color: red; margin: 0">Final Task Team 🔥</h2>
+            <h2 style="text-align: center; color: red !important; margin: 0">Final Task Team 🔥</h2>
             <div style="text-align: center; padding: 1em;">
                 <img src="assets/team.jpg" alt="Team Photo" style="max-width: 30%; height: 8.5em; margin: 0;">
                 <p class="blinking" style="color: red; font-size: 1em;">Дисклеймер:</p>
                 <p class="disclaimer-text" style="color: navy; font-size: 0.6em; margin: 0 auto; width: 80%;">
                     Во избежание дисквалификации сообщаем, что в проекте принимало участие 3 человека, в папку assests
                     было загружено изображение с 3 участниками,
-                    но в браузере на слайде получили 4 участника, при этом в консоли была выведена ОШИБКА: «Арина работала за
-                    двоих».  😂
+                    но в браузере на слайде получили 4 участника, при этом в консоли была выведена ОШИБКА: «Арина
+                    работала за
+                    двоих». 😂
                 </p>
             </div>
         </section>
@@ -328,7 +365,7 @@
         <section class="small-font" style="background-color: lightyellow; margin: 0; padding: 0;">
 
             <div class="slide-3">
-                <h1 style = "margin-bottom: 2em">Распределение обязанностей 📋</h1>
+                <h1 style="margin-bottom: 2em">Распределение обязанностей 📋</h1>
                 <div class="participants-container">
                     <div class="participant-container">
                         <h2>Руслан</h2>
@@ -349,28 +386,30 @@
                     </div>
                     <div class="participant-container">
                         <h2>Арина</h2>
-                            <ul>
-                                <li>Работа с модулем аутентификации</li>
-                                <li>Работа с модулем профиля пользователя</li>
-                                <li>Создание API</li>
-                                <li>Настройка безопасности</li>
-                            </ul>
-                        </div>
+                        <ul>
+                            <li>Работа с модулем аутентификации</li>
+                            <li>Работа с модулем профиля пользователя</li>
+                            <li>Создание API</li>
+                            <li>Настройка безопасности</li>
+                        </ul>
                     </div>
                 </div>
+            </div>
         </section>
         <section class="small-font" style="background-color: lightyellow; margin: 0; padding: 0;">
             <div class="slide-4">
                 <h1 style="margin-bottom: 0.3em;">Канбан-доска</h1>
                 <div class="slide-4-content">
-                    <h2 style="margin-top: 0">Основной инструмент реализации данной координации - использование приложения Trello</h2>
+                    <h2 style="margin-top: 0">Основной инструмент реализации данной координации - использование
+                        приложения Trello</h2>
                     <h3 style="margin-bottom: 2em;">Плюсы и особенности работы через Trello:</h3>
                     <ul>
                         <li>Каждая задача на доске имела уникальный код, который дублировался в отдельную ветку при
                             разработке данной задачи, и в пул-реквест
                         </li>
                         <li>Каждая задача создавалась как достаточно ёмкая и понятная, чтобы быть реализованной (т.е.
-                            крупные задачи дробились на мелкие), но при этом не слишком маленькой, чтобы была возможность
+                            крупные задачи дробились на мелкие), но при этом не слишком маленькой, чтобы была
+                            возможность
                             реализовать свой интеллектуальный потенциал.
                         </li>
                         <li>Каждая задача закреплялась за конкретным исполнителем. Это упрощало процесс контроля за
@@ -385,12 +424,15 @@
             <div class="slide-4">
                 <h1 style="margin-bottom: 0.3em;">Канбан-доска</h1>
                 <div class="slide-4-content">
-                    <h2 style="margin-top: 0">Основной инструмент реализации данной координации - использование приложения Trello</h2>
+                    <h2 style="margin-top: 0">Основной инструмент реализации данной координации - использование
+                        приложения Trello</h2>
                     <h3 style="margin-bottom: 2em;">Сложности работы через Trello:</h3>
                     <ul>
-                        <li>Особая важность подготовительной работы перед распределением задач. Для того, чтобы распределить
+                        <li>Особая важность подготовительной работы перед распределением задач. Для того, чтобы
+                            распределить
                             задачи равномерно согласно времени и интеллектуальной сложности, особо важную роль (а
-                            соответственно и значительное количество времени) отводилось на комплексное изучение проекта в
+                            соответственно и значительное количество времени) отводилось на комплексное изучение проекта
+                            в
                             целом перед началом распределения задач. Когда имеешь картину в целом - легче раздробить и
                             делегировать задачи.
                         </li>
@@ -433,7 +475,7 @@
         </section>
         <section class="stack-slide" style="background-color: lightyellow; margin: 0; padding: 0">
             <div class="countdown-container">
-                <h1 style="color: darkblue;">Наш Стек</h1>
+                <h1 style="font-size: 2em !important;">Наш Стек</h1>
                 <div id="countdown" style="font-size: 2em; color: darkblue;"></div>
             </div>
             <ul style="list-style: none; padding: 0;" id="stack-list">
@@ -452,10 +494,29 @@
             </ul>
         </section>
 
+        <section class="statistics-slide" style="background-color: lightyellow; margin: 0; padding: 0;">
+            <h1 style="text-align: center; font-size: 0.7em !important; margin-bottom: 0;">Статистика GitHub</h1>
+            <div class="statistics-image-container">
+                <img src="assets/team-stat.png" alt="Team Statistics" style="height: 8em; ">
+            </div>
+            <div class="individual-statistics-container">
+                <img src="assets/ruslan-stat.png" alt="Ruslan Statistics" class="individual-stat">
+                <img src="assets/arina-stat.png" alt="Arina Statistics" class="individual-stat">
+                <img src="assets/dima-stat.png" alt="Dima Statistics" class="individual-stat">
+            </div>
+        </section>
+        <section class="code-review-slide" style="background-color: lightyellow; margin: 0; padding: 0;">
+            <h1 style="text-align: center; font-size: 1em !important">Код Ревью: у нас все ходы записаны</h1>
+            <div class="code-review-images-scroll">
+                <img src="assets/dima-comment.png" alt="Dima's comments" class="code-review-image">
+                <img src="assets/ruslan-comment.png" alt="Ruslan's comments" class="code-review-image">
+                <img src="assets/arina-comments.png" alt="Arina's comments" class="code-review-image">
+            </div>
+        </section>
 
 
         <section data-background-color="lightyellow">
-            <h2 style="font-size: 0.8em;">Сложности работы с серверной документацией  😭</h2>
+            <h2 style="font-size: 0.8em; color: red !important">Сложности работы с серверной документацией 😭</h2>
             <div class="container">
                 <div class="left-column" style="height:650px">
                     <pre><code>
@@ -535,7 +596,7 @@ export function getFormHeaders() {
             </div>
         </section>
         <section style="background-color: lightyellow; height: 100vh">
-            <h2 style="text-align: center; color: darkblue; margin-top: 1em;">Спасибо за внимание!!!</h2>
+            <h2 style="text-align: center; color: red !important; margin-top: 5em;">Спасибо за внимание!!!</h2>
         </section>
     </div>
 </div>

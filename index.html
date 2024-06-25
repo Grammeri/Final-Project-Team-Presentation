@@ -328,14 +328,12 @@
         }
 
 
-
-
     </style>
 </head>
 <body>
 <div class="reveal">
     <div class="slides">
-        <section style="background-color: lightyellow; margin: 0; padding: 0;">
+        <section data-state="slide-1" style="background-color: lightyellow; margin: 0; padding: 0;">
             <h2 style="text-align: center; color: red !important; margin: 0">Final Task Team 🔥</h2>
             <div style="text-align: center; padding: 1em;">
                 <img src="assets/team.jpg" alt="Team Photo" style="max-width: 30%; height: 8.5em; margin: 0;">
@@ -595,7 +593,7 @@ export function getFormHeaders() {
                 </div>
             </div>
         </section>
-        <section style="background-color: lightyellow; height: 100vh">
+        <section  style="background-color: lightyellow; height: 100vh">
             <h2 style="text-align: center; color: red !important; margin-top: 5em;">Спасибо за внимание!!!</h2>
         </section>
     </div>
@@ -662,6 +660,21 @@ export function getFormHeaders() {
             }
         }, 1000);
     });
+    Reveal.initialize({
+        hash: true,
+        slideNumber: true,
+        transition: 'slide', // Выберите стиль перехода: 'none', 'fade', 'slide', 'convex', 'concave', 'zoom'
+        dependencies: [
+            { src: 'plugin/markdown/marked.js' },
+            { src: 'plugin/markdown/markdown.js' },
+            { src: 'plugin/notes/notes.js', async: true },
+            { src: 'plugin/highlight/highlight.js', async: true },
+            { src: 'plugin/zoom-js/zoom.js', async: true },
+            { src: 'plugin/search/search.js', async: true },
+            { src: 'plugin/notes/notes.js', async: true }
+        ]
+    });
+
 </script>
 
 </body>
